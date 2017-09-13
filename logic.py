@@ -8,7 +8,7 @@ stemmer = RussianStemmer()
 toktok = ToktokTokenizer()
 
 DUMP_FILE_NAME = "./dump/dump.bin"
-SENTENCES_CHUNK_SIZE = 5
+SENTENCES_CHUNK_SIZE = 1
 sentences = {}
 amount_of_sentences_in_dump = 0
 
@@ -96,6 +96,7 @@ def get_random_normalized_answer(sentence_text):
 def get_random_answer(sentence_text):
 	n_answer = get_random_normalized_answer(sentence_text)
 	if not n_answer:
-		n_random_sentence = random.sample(list(sentences), 1)[0]
-		return sentences[n_random_sentence]["full_text"]
+		# n_random_sentence = random.sample(list(sentences), 1)[0]
+		# return sentences[n_random_sentence]["full_text"]
+		return False
 	return sentences[n_answer]["full_text"]
